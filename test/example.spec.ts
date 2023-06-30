@@ -1,13 +1,29 @@
-import { expect, test } from "vitest";
+import { test, beforeAll, afterAll } from "vitest";
+import request from "supertest";
+import { app } from "../src/app";
 
-// Conceitos principais teste
+// Await all plugins is registed (app to be ready), before start to run all tests
+beforeAll(async () => {
+  await app.ready();
+});
 
-// Descrição
-// O que o teste está proposto a fazer
-// Validação
+// After all test, ends the app
+afterAll(async () => {
+  await app.close();
+});
 
-test("user can create new transaction", () => {
-  const responseStatusCode = 201;
+// Description
+// What the test is supposed to do
+// Validation
+test("user can create a new transaction", async () => {
+  await request(app.server)
+    .post("/transactions")
+    .send({
+      title: "New transaction",
+      amount: 5000,
+      type: "credit",
+    })
+    .expect(201);
 
-  expect(responseStatusCode).toEqual(201);
+  // expect(response.statusCode).toEqual(201); // Long sintax without using supertest lib
 });
