@@ -1,4 +1,5 @@
-import { beforeAll, afterAll, describe, it, expect } from "vitest";
+import { beforeAll, afterAll, describe, it, expect, beforeEach } from "vitest";
+import { execSync } from "node:child_process";
 import request from "supertest";
 import { app } from "../src/app";
 
@@ -12,6 +13,13 @@ describe("Transactions routes", () => {
   // After all test, ends the app
   afterAll(async () => {
     await app.close();
+  });
+
+  // Before each test, drop all tables and create again;
+  // It is important to reset the database so that there are no conflicts between tests;
+  beforeEach(() => {
+    execSync("npm run knex migrate:rollback -all"); // execSync -> run comands in terminal
+    execSync("npm run knex migrate:latest");
   });
 
   // Description
