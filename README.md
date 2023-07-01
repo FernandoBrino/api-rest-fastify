@@ -1,17 +1,20 @@
-# Fastify REST API
+# Mãos Entrelaçadas REST API
 
-This is a RESTful API developed using [Fastify](https://fastify.dev), aiming for learning purposes of the microframework.
+This is a RESTful API developed using [NestJS](https://nestjs.com), aiming help the NGO "Mãos Entrelaçadas";
 
 ## Description
 
-The Fastify REST API is a simple application that provides endpoints to interact with resources in a specific domain. It utilizes the Fastify framework, known for its high performance and efficiency in processing HTTP requests, while maintaining TypeScript and ESM consistently.
+The Mãos Entrelaçadas REST API is a final paper to Systems analysis and development course, aiming help the NGO "Mãos Entrelaçadas" collect funds, implements technology stronger and reach more people with this same technology. It utilizes the NestJS framework, a progressive Node.js framework for building efficient, reliable and scalable server-side applications. 
 
 ## Resources
 
 The API offers the following resources:
 
-- **Transactions**: Management of transactions with basic operations such as creating a transaction, listing all transactions, retrieving a single transaction, and obtaining a total summary of the debited and credited values of the account. All actions are isolated between users, allowing access to only their own transaction information.
-
+- **Auth**: Login with user.
+- **Announcements**: Management of announcements such as creating, listing, updating and deleting.
+- **Events**: Managemet of events such as creating, listing, updating, deleting and sign an user to a specific event.
+- **Genders**: Management of genders such as creating, listing and deleting.
+- **User**: Management of users such as creating, listing, updating, deleting and get all events signed by the user.
 ## Installation
 
 Follow the instructions below to set up and run the project on your local environment:
@@ -19,13 +22,13 @@ Follow the instructions below to set up and run the project on your local enviro
 1. Clone this repository to your computer using the command:
 
 ```shell
-git clone https://github.com/FernandoBrino/api-rest-fastify.git
+git clone https://github.com/FernandoBrino/maos_entrelacadas.git
 ```
 
 2. Access the project directory:
 
 ```shell
-cd api-rest-fastify
+cd maos_entrelacadas
 ```
 
 3. Install the project dependencies:
@@ -34,40 +37,22 @@ cd api-rest-fastify
 npm install
 ```
 
-4. Start the development server:
+4. Run migrations:
 
 ```shell
-npm start
+npm run:migration
 ```
 
-5. The server will be running locally at `http://localhost:3333`.
+5. Start the development server:
+```shell
+npm start:dev
+```
+
+6. The server will be running locally at `http://localhost:3000`.
 
 ## Usage
 
-After starting the server, you can use the API through HTTP requests. Here are some examples of how to interact with the available resources:
-
-- **Transactions**
-  - **POST /transactions**: Create a new transaction.
-  - **GET /transactions**: List all transactions.
-  - **GET /transactions/:id**: Get information about a single transaction.
-  - **GET /transactions/summary**: Get a summary of the total value, based on the credited and debited values in the transactions.
-
-- **DTO's**
-
-  Example of creating a transaction:
-  ```
-    {
-      "title": "New transaction",
-      "amount": 5000,
-      "type": "credit"
-    }
-  ```
-
-  - title: The title of the transaction.
-  - amount: The value of the transaction.
-  - type: The type of transaction, can be "credit" (add) or "debit" (subtract).
-
-Make sure to replace `:id` with the actual user or product identifiers when making specific requests.
+After starting the server, you can use the API through Swagger, accessing `_baseURL/api`.
 
 ## Contribution
 
