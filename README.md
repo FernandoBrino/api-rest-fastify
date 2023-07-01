@@ -50,6 +50,22 @@ Após iniciar o servidor, você poderá utilizar a API através de requisições
   - **GET /transactions**: Lista todas transações.
   - **GET /transactions/:id**: Obtém informações de uma única transação.
   - **GET /transactions/summary**: Obtém um resumo do valor total, baseado nos valores creditos e debitados nas transações.
+ 
+- **DTO's**
+  
+  Exemplo criação de uma transação:
+  ```
+    {
+      "title": "Nova transação",
+      "amount": 5000,
+      "type": "credit"
+    }
+  ```
+
+  - title: O título da transação.
+  - amount: O valor da transação.
+  - type: O tipo da transação, pode ser "credit" (soma) ou "debit" (subtrai).
+    
 
 Certifique-se de substituir `:id` pelos identificadores reais dos usuários ou produtos ao fazer requisições específicas.
 
