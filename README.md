@@ -1,66 +1,81 @@
-# Mãos Entrelaçadas REST API
+# API Rest Fastify
 
-This is a RESTful API developed using [NestJS](https://nestjs.com), aiming help the NGO "Mãos Entrelaçadas";
+Esta é uma API Restful desenvolvida utilizando [Fastify](https://fastify.dev), vizando o aprendizado do microframework.
 
-## Description
+## Descrição
 
-The Mãos Entrelaçadas REST API is a final paper to Systems analysis and development course, aiming help the NGO "Mãos Entrelaçadas" collect funds, implements technology stronger and reach more people with this same technology. It utilizes the NestJS framework, a progressive Node.js framework for building efficient, reliable and scalable server-side applications. 
+A API Rest Fastify é uma aplicação simples que fornece endpoints para interagir com recursos de um determinado domínio. Ela utiliza o framework Fastify, conhecido por sua alta performance e eficiência no processamento de requisições HTTP, além de manter o Typescript e o ESM de forma consistente.
+## Recursos
 
-## Resources
+A API oferece os seguintes recursos:
 
-The API offers the following resources:
+- **Transações**: Gerenciamento de transações com operações básicas como a criação de uma transação, a listagem de todas transações, de uma unica transação e um resumo total dos valores debitados e creditados da conta. Sendo todas as ações isoladas entre os usuários, sendo possível obter informações apenas de suas transações por exemplo.
 
-- **Auth**: Login with user.
-- **Announcements**: Management of announcements such as creating, listing, updating and deleting.
-- **Events**: Managemet of events such as creating, listing, updating, deleting and sign an user to a specific event.
-- **Genders**: Management of genders such as creating, listing and deleting.
-- **User**: Management of users such as creating, listing, updating, deleting and get all events signed by the user.
-## Installation
+## Instalação
 
-Follow the instructions below to set up and run the project on your local environment:
+Siga as instruções abaixo para configurar e executar o projeto em seu ambiente local:
 
-1. Clone this repository to your computer using the command:
+1. Clone este repositório para o seu computador utilizando o comando:
 
 ```shell
-git clone https://github.com/FernandoBrino/maos_entrelacadas.git
+git clone https://github.com/FernandoBrino/api-rest-fastify.git
 ```
 
-2. Access the project directory:
+2. Acesse o diretório do projeto:
 
 ```shell
-cd maos_entrelacadas
+cd api-rest-fastify
 ```
 
-3. Install the project dependencies:
+3. Instale as dependências do projeto:
 
 ```shell
 npm install
 ```
 
-4. Run migrations:
+4. Inicie o servidor de desenvolvimento:
 
 ```shell
-npm run:migration
+npm start
 ```
 
-5. Start the development server:
-```shell
-npm start:dev
-```
+5. O servidor estará em execução localmente em `http://localhost:3333`.
 
-6. The server will be running locally at `http://localhost:3000`.
+## Utilização
 
-## Usage
+Após iniciar o servidor, você poderá utilizar a API através de requisições HTTP. Aqui estão alguns exemplos de como interagir com os recursos disponíveis:
 
-After starting the server, you can use the API through Swagger, accessing `_baseURL/api`.
+- **Transações**
+  - **POST /transactions**: Cria uma nova transação.
+  - **GET /transactions**: Lista todas transações.
+  - **GET /transactions/:id**: Obtém informações de uma única transação.
+  - **GET /transactions/summary**: Obtém um resumo do valor total, baseado nos valores creditos e debitados nas transações.
 
-## Contribution
+- **DTO's**
+  
+  Exemplo criação de uma transação:
+  ```
+    {
+      "title": "Nova transação",
+      "amount": 5000,
+      "type": "credit"
+    }
+  ```
 
-Contributions are welcome! If you find any issues, have suggestions, or want to add new features, feel free to open an issue or submit a pull request.
+  - title: O título da transação.
+  - amount: O valor da transação.
+  - type: O tipo da transação, pode ser "credit" (soma) ou "debit" (subtrai).
 
-## License
 
-This project is licensed under the MIT License.
+Certifique-se de substituir `:id` pelos identificadores reais dos usuários ou produtos ao fazer requisições específicas.
+
+## Contribuição
+
+Contribuições são bem-vindas! Se você encontrou algum problema, tem sugestões ou deseja adicionar novos recursos, fique à vontade para abrir uma *issue* ou enviar um *pull request*.
+
+## Licença
+
+Este projeto está licenciado sob a MIT License.
 
 ---
-Created by [Fernando Brino](https://github.com/FernandoBrino)
+Criado por [Fernando Brino](https://github.com/FernandoBrino)
