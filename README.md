@@ -75,7 +75,7 @@ Contribuições são bem-vindas! Se você encontrou algum problema, tem sugestõ
 
 ## Licença
 
-Este projeto está licenciado sob a MIT License.
+Este projeto está licenciado sob a ISC License.
 
 ---
 Criado por [Fernando Brino](https://github.com/FernandoBrino)
